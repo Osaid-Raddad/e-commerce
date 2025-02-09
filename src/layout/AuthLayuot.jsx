@@ -1,6 +1,4 @@
 import React, { useRef } from 'react'
-import CustomNavbar from '../components/user/navbar/navbar'
-import { Outlet } from 'react-router-dom'
 import styles from '../pages/user/authCss/Auth.module.css'
 import Login from '../pages/user/login/Login.jsx'
 import Register from '../pages/user/register/Register.jsx'
