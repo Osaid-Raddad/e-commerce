@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../authCss/Auth.module.css'
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { Bounce, Slide, toast, Zoom } from 'react-toastify';
 import axios from 'axios';
@@ -83,6 +83,7 @@ export default function login() {
         })}</div> : ""}
       </div>
       <Button type="submit" className={`${styles.btn} ${styles.solid}`}>{isLoading ? "Loading..." : "Login "}</Button>
+      <Link to={'/verify'} className={`${styles.forgotPassword}`}>Forgot Password?</Link>
       <p className={`${styles.socialText}`}>Or Sign in with social platforms</p>
       <div className={`${styles.socialMedia}`}>
         <a href="#" className={`${styles.socialIcon}`}>

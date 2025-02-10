@@ -17,6 +17,13 @@ input {
     display: none;
 }
 
+.forgotPassword{
+    text-decoration: none;
+}
+
+.forgotPassword:hover{
+    text-decoration: underline;
+}
 
 .formsContainer {
     position: absolute;

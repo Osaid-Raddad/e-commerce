@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styles from '../authCss/Auth.module.css'
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { Bounce, toast, Zoom } from 'react-toastify';
 import { Button } from 'react-bootstrap';
 export default function register({ toggleForm }) {
@@ -11,7 +10,7 @@ export default function register({ toggleForm }) {
   //const [serverError, setServerError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const registerUser = async (value) => {
     setIsLoading(true);
     try {

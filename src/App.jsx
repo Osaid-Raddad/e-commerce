@@ -5,6 +5,8 @@ import Register from './pages/user/register/Register.jsx'
 import Login from './pages/user/login/Login.jsx'
 import Home from './pages/home/Home.jsx'
 import { ToastContainer } from 'react-toastify'
+import Verify from './pages/user/forgetPass/Verify.jsx'
+import ForgetPassLayout from './layout/ForgetPassLayout.jsx'
 export default function App() {
 
   const route = createBrowserRouter([
@@ -26,7 +28,11 @@ export default function App() {
         }
       ]
     },
-    
+    {
+      path:"/verify",
+      element:<ForgetPassLayout/>
+      
+    },
     {
       path:"/home",
       element:<Home/>
