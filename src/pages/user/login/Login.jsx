@@ -28,6 +28,7 @@ export default function login() {
           theme: "light",
           transition: Zoom,
         });
+        localStorage.setItem('USER TOKEN', response.data.token);
         navigate("/home");
       }
     } catch (err) {
