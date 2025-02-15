@@ -22,11 +22,12 @@ export default function CustomNavbar() {
                                 Separated link
                             </NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link as={Link} to={'/login'}>Login</Nav.Link>
-                        <Nav.Link as={Link} to={'/register'}>Register</Nav.Link>
+                        <Nav.Link as={Link} to={'/auth'}>Login</Nav.Link>
                     </Nav>
                     <Nav className="ms-auto">
                     <Nav.Link href="#home">Phone</Nav.Link>
+                    <Nav.Link as={Link} to={'/category'}>Category</Nav.Link>
+                    <Nav.Link as={Link} to={'/products'}>Product</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

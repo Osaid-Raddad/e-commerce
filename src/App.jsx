@@ -5,13 +5,15 @@ import Register from './pages/user/register/Register.jsx'
 import Login from './pages/user/login/Login.jsx'
 import Home from './pages/home/Home.jsx'
 import { ToastContainer } from 'react-toastify'
-import Verify from './pages/user/forgetPass/Verify.jsx'
 import ForgetPassLayout from './layout/ForgetPassLayout.jsx'
+import Category from './pages/user/category/Category.jsx'
+import Product from './pages/user/products/Products.jsx'
+import UserLayout from './layout/UserLayout.jsx'
 export default function App() {
 
   const route = createBrowserRouter([
     {
-      path:"/",
+      path:"/auth",
       element:<AuthLayout/>,
       children:[
         {
@@ -34,8 +36,22 @@ export default function App() {
       
     },
     {
-      path:"/home",
-      element:<Home/>
+      path:"/",
+      element:<UserLayout/>,
+      children:[
+        {
+          path:"/",
+          element:<Home/>
+        },
+        {
+          path:"category",
+          element:<Category/>
+        },
+        {
+          path:"products",
+          element:<Product/>
+        }
+      ]
     },
   ]
   );

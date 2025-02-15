@@ -4,6 +4,7 @@ import styles from '../authCss/Auth.module.css';
 import { Button } from 'react-bootstrap';
 import { Bounce, Slide, toast } from 'react-toastify';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 export default function Verify({ toggleForm }) {
 
     //const [serverError, setServerError] = useState("");
@@ -67,6 +68,7 @@ export default function Verify({ toggleForm }) {
             </div>
 
             <Button type="submit" className={`${styles.btn} ${styles.solid}`}>{isLoading ? "Loading..." : "Send Code "}</Button>
+            <Link to={'/login'} className={`${styles.forgotPassword}`}>Back To Login</Link>
             <p className={`${styles.socialText}`}>Or Sign in with social platforms</p>
             <div className={`${styles.socialMedia}`}>
                 <a href="#" className={`${styles.socialIcon}`}>
