@@ -1,0 +1,116 @@
+/* Black Friday Nav */
+.blackNav {
+    background-color: #191C1F;
+}
+
+.blackBtn {
+    color: #000;
+    background-color: #EBC80C;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 450px) {
+    .blackCont {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 350px;
+        gap: 50px;
+    }
+
+}
+
+
+/* Middle Nav*/
+
+.middleNav {
+    background-color: #1B6392;
+}
+
+.mCon {
+    display: flex;
+}
+
+.iconPackage {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .mCon {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .iconPackage {
+        margin: 0 !important;
+    }
+}
+
+
+
+
+/* Search Nav */
+
+.searchNav {
+    background-color: #1B6392;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.icon {
+    font-size: 20px;
+    margin-right: 10px;
+
+}
+
+@media  screen and (max-width: 326px) {
+   .sCont{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px;
+   
+   }
+
+    .icon {
+        margin: 0 !important;
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .icon {
+        display: flex !important;
+        flex-direction: row;
+        gap: 20px;
+    }
+}
+
+
+/* NAV */
+
+.nav{
+    background-color: #fff;
+    border-bottom: 1px solid rgba(80, 80, 80, 0.5);
+}
+
+.drop{
+    border: 1px solid #F2F4F5;
+    background-color: #F2F4F5;
+    padding: 5px;
+}
+
+  

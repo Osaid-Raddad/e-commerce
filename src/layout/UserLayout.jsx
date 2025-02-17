@@ -1,14 +1,21 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import CustomNavbar from '../components/user/navbar/Navbar'
+import Blackfridaynav from '../components/user/navbar/Blackfridaynav.jsx'
+import Middlenav from '../components/user/navbar/Middlenav.jsx';
+import Searchnav from '../components/user/navbar/Searchnav.jsx';
 
 export default function UserLayout() {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   return (
     <>
-    <CustomNavbar/>
-    <Outlet/>
+      {isHomePage && <Blackfridaynav />}
+      <Middlenav/>
+      <Searchnav/>
+      <CustomNavbar />
+      <Outlet />
     </>
-    
-    
-  )
+  );
 }
