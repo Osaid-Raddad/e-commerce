@@ -8,7 +8,7 @@ export default function Footer() {
             <footer className={styles.bg}>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-md-6 mt-4  ">
                             <img src={Flogo} alt="oclion" />
                             <div className={`${styles.content} gap-2 mt-4`}>
                                 <p className={styles.p1}>Customer Support: <span className='text-white'>(629) 555-0129</span></p>
@@ -16,16 +16,16 @@ export default function Footer() {
                                 <p className='text-white'>info@gmail.com</p>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-md-6 mt-4">
                             <h2 className='text-white'>Quick Links</h2>
-                            <div className={`${styles.links} mt-4`}>
+                            <div className={`${styles.links} mt-3`}>
                                 <Link to={'/'} className={styles.linksCustom}>Shop Product</Link>
                                 <Link to={'/'} className={styles.linksCustom}>Shoping Cart</Link>
                                 <Link to={'/'} className={styles.linksCustom}>Wishlist</Link>
                                 <Link to={'about'} className={styles.linksCustom}>About Us</Link>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-md-6 mt-4">
                             <h2 className="text-white">Popular Tag</h2>
                             <div className={`${styles.popularTags} mt-4`}>
                                 <button>Game</button>
