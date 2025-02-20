@@ -4,6 +4,7 @@ import CustomNavbar from '../components/user/navbar/Navbar'
 import Blackfridaynav from '../components/user/navbar/Blackfridaynav.jsx'
 import Middlenav from '../components/user/navbar/Middlenav.jsx';
 import Searchnav from '../components/user/navbar/Searchnav.jsx';
+import Footer from '../components/user/footer/Footer.jsx';
 
 export default function UserLayout() {
   const location = useLocation();
@@ -16,6 +17,7 @@ export default function UserLayout() {
       <Searchnav/>
       <CustomNavbar />
       <Outlet />
+      <Footer/>
     </>
   );
 }

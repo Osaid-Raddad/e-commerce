@@ -1,0 +1,52 @@
+.bg{
+    background-color: #191C1F;
+    padding: 50px;
+}
+
+.content{
+    color: #fff;
+
+}
+
+.p1{
+    color: #ADB7BC;
+    width: 45%;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.linksCustom{
+    text-decoration: none;
+    color: #fff;
+}
+
+.linksCustom:hover{
+    color: #1B6392;
+    text-decoration: underline;
+}
+
+.popularTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .popularTags button {
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .popularTags button:hover {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
