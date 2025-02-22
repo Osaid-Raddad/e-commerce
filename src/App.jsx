@@ -10,6 +10,7 @@ import Category from './pages/user/category/Category.jsx'
 import Product from './pages/user/products/Products.jsx'
 import UserLayout from './layout/UserLayout.jsx'
 import Categoryproducts from './pages/user/products/Categoryproducts.jsx'
+import ProductDetails from './pages/user/products/productDetails/ProductDetails.jsx'
 export default function App() {
 
   const route = createBrowserRouter([
@@ -55,6 +56,10 @@ export default function App() {
         {
           path:"products",
           element:<Product/>
+        },
+        {
+          path:"/products/:productId",
+          element:<ProductDetails/>
         }
       ]
     },

@@ -44,7 +44,7 @@ export default function Products() {
                   <div className={styles.overlayIcons}>
                     <button className={styles.icon}><FaHeart /></button>
                     <button className={styles.icon}><FaShoppingCart /></button>
-                    <Link to={'/'} className={`${styles.icon}`}><FaEye /></Link>
+                    <Link to={`/products/${product.id}`} className={`${styles.icon}`}><FaEye /></Link>
                   </div>
                 </div>
                 <div className={styles.cardBody}>
