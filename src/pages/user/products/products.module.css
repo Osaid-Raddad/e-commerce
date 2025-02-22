@@ -1,0 +1,94 @@
+.productCard {
+    width: 220px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    position: relative; /* Ensure relative positioning */
+}
+
+.productCard:hover {
+    transform: translateY(-5px);
+}
+
+.imageContainer {
+    position: relative;
+}
+
+.productImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Modify the hover trigger to be on .productCard */
+.productCard:hover .overlayIcons {
+    opacity: 1;
+}
+
+.overlayIcons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    gap: 8px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.icon {
+    background: white;
+    color: black;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    background: #f57c00;
+}
+
+
+
+.cardBody {
+    padding: 10px;
+    text-align: center;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+
+.ratingCount {
+    font-size: 15px;
+    font-weight: bold;
+    color: gold;
+}
+
+.productTitle {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: green;
+}

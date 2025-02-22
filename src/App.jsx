@@ -9,6 +9,7 @@ import ForgetPassLayout from './layout/ForgetPassLayout.jsx'
 import Category from './pages/user/category/Category.jsx'
 import Product from './pages/user/products/Products.jsx'
 import UserLayout from './layout/UserLayout.jsx'
+import Categoryproducts from './pages/user/products/Categoryproducts.jsx'
 export default function App() {
 
   const route = createBrowserRouter([
@@ -42,6 +43,10 @@ export default function App() {
         {
           path:"/",
           element:<Home/>
+        },
+        {
+          path:"/category/:categoryId",
+          element:<Categoryproducts />
         },
         {
           path:"category",

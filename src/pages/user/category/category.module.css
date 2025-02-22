@@ -1,0 +1,17 @@
+.cardContainer {
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cardContainer:hover {
+    transform: translateY(-10px); /* Lifts the card slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Adds shadow to the card */
+  }
+  
+  .cardContainer img {
+    transition: transform 0.3s ease;
+  }
+  
+  .cardContainer:hover img {
+    transform: scale(1.05); /* Slight zoom on image */
+  }

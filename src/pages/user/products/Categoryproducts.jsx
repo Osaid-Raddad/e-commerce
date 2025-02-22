@@ -5,11 +5,12 @@ import Card from 'react-bootstrap/Card';
 import Loading from '../../../components/user/loading/Loading';
 import styles from './products.module.css';
 import { FaEye, FaHeart, FaShoppingCart, FaStar } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-export default function Products() {
+export default function Categoryproducts() {
 
-  const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products`);
+  const {categoryId} = useParams();
+  const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products/category/${categoryId}`);
   console.log(data);
 
   if (isLoading) {
@@ -50,9 +51,10 @@ export default function Products() {
                 <div className={styles.cardBody}>
                   <h3 className={styles.productTitle}>{product.name}</h3>
                   <div className={styles.rating}>
-                    <span className={styles.ratingCount}>Rating:{product.avgRating}</span>
+                    <span className={styles.ratingCount}><span className='text-dark fw-bold'>Rating:</span> {product.avgRating}</span>
                   </div>
                   <p className={styles.price}> ${product.price}</p>
+                  
                 </div>
               </div>
             </div>
