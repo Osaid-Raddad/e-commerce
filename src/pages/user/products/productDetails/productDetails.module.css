@@ -129,6 +129,11 @@
     justify-content: space-between;
 }
 
+.three i:hover{
+    color: #FA8232;
+    transition: background-color 0.3s ease-in-out;
+}
+
 .share{
     display: flex;
     gap:5px
@@ -140,12 +145,17 @@
     padding: 0px 0px;
 }
 
+.list i:hover {
+    color: #FA8232;
+    transition: background-color 0.3s ease-in-out;
+}
+
 .fourth{
     border: 1px solid #E4E7E9;
     display: flex;
     flex-direction: column;
     padding: 30px;
-
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 1399px) {
@@ -234,4 +244,74 @@
     .quantitySelector {
         width: 25%;
     }
+}
+
+
+/* Desc */
+
+.desc .nav {
+    background-color: white !important;
+}
+
+.desc button {
+    color: #fff !important;
+    background-color: #000 !important;
+    border-radius: 25px !important;
+    width: 150px ;
+    font-weight: bold ;
+}
+
+.desc .nav-tabs .nav-link.active {
+    background-color: #fff !important;
+}
+
+.desc .nav-link:hover {
+    color: #1B6392 !important;
+}
+
+.desc .nav-link:focus-visible{
+    box-shadow: none;
+}
+
+.desc .nav-tabs{
+    border-bottom: none !important;
+}
+
+.des{
+    font-size: 25px;
+}
+
+.rev{
+    display: flex !important;
+    gap: 15px;
+    justify-content: center;
+    
+}
+
+.revList{
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+    overflow: hidden;
+}
+
+.user{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: baseline;
+}
+
+.userIcon{
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 5px 10px;
+    background-color: #cacaca;
 }

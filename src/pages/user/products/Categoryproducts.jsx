@@ -30,7 +30,7 @@ export default function Categoryproducts() {
         theme: "light",
         transition: Slide,
       }) : ''}
-
+      
       <div className="container mt-5 mb-5 ">
         <div className="row">
           {data.products.map(product => (
@@ -45,7 +45,7 @@ export default function Categoryproducts() {
                   <div className={styles.overlayIcons}>
                     <button className={styles.icon}><FaHeart /></button>
                     <button className={styles.icon}><FaShoppingCart /></button>
-                    <Link to={'/'} className={`${styles.icon}`}><FaEye /></Link>
+                    <Link to={`/products/${product.id}`} className={`${styles.icon}`}><FaEye /></Link>
                   </div>
                 </div>
                 <div className={styles.cardBody}>
