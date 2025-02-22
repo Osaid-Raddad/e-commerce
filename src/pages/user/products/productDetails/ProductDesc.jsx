@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Tab } from 'bootstrap/dist/js/bootstrap.bundle.min';
-import styles from './ProductDetails.module.css';
+import styles from './productDetails.module.css';
 export default function ProductDesc({ data }) {
     useEffect(() => {
         const tabs = document.querySelectorAll('[data-bs-toggle="tab"]');
