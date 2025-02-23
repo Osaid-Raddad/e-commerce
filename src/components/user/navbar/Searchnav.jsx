@@ -9,6 +9,9 @@ import { FormControl, InputGroup, Nav } from 'react-bootstrap';
 import Logo from '../../../assets/img/Logo.svg';
 import { Link } from 'react-router-dom';
 export default function Searchnav() {
+   
+    
+   
     return (
         <>
             <Navbar expand="lg" className={styles.searchNav}>

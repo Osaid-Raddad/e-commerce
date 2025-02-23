@@ -36,6 +36,12 @@ export default function Products() {
             <div className="col-xl-3 col-md-6 d-flex justify-content-center mb-4" key={product.id}>
               <div className={styles.productCard}>
                 <div className={styles.imageContainer}>
+                  {product.discount > 0 && (
+                    <div className={styles.discountBadge}>
+                      -{product.discount}%
+                    </div>
+                  )}
+
                   <img
                     src={product.mainImage.secure_url}
                     alt={product.name}
@@ -52,9 +58,14 @@ export default function Products() {
                     {product.name.length > 20 ? product.name.substring(0, 20) + "..." : product.name}
                   </h3>
                   <div className={styles.rating}>
-                    <span className={styles.ratingCount}>Rating:{product.avgRating}</span>
+                    <span className={styles.ratingCount}>
+                      Rating: {parseFloat(product.avgRating).toFixed(2)}
+                    </span>
                   </div>
-                  <p className={styles.price}> ${product.price}</p>
+                  <div className={styles.P}>
+                    <p className={styles.finalPrice}>${product.finalPrice}</p>
+                    <p className={styles.price}>${product.price}</p>
+                  </div>
                 </div>
               </div>
             </div>
