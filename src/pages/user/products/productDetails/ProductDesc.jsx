@@ -9,7 +9,7 @@ export default function ProductDesc({ data }) {
         tabs.forEach(tab => {
             tab.addEventListener("click", function (event) {
                 event.preventDefault();
-                const tabTrigger = new Tab(this); // Use the imported Tab class
+                const tabTrigger = new Tab(this); 
                 tabTrigger.show();
             });
         });
@@ -33,15 +33,18 @@ export default function ProductDesc({ data }) {
                         {data.product.description}
                     </div>
                     <div className={` mt-5 mb-5 tab-pane fade`} id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex={0}>
-                            <div className={`row ${styles.rev}`}>
+                        <div className={`container ${styles.comment}`}>
+                            
+                        </div>
+                        <div className={`row ${styles.rev}`}>
                             {data.product.reviews.map(review => (
-                                <div className={`${styles.revList} col-lg-4`} key={review._id}>  
-                                        <div className={styles.user}>
-                                            <i className={` ${styles.userIcon} fa-solid fa-user text-black`}></i>
-                                            <p className='fw-bold'>{review.createdBy.userName}</p>
-                                        </div>
-                                        <p><span className='fw-bold'>Comment:</span> {review.comment}</p>
-                                        <p><span className='fw-bold'>Rating:</span> {review.rating}</p>   
+                                <div className={`${styles.revList} col-lg-4`} key={review._id}>
+                                    <div className={styles.user}>
+                                        <i className={` ${styles.userIcon} fa-solid fa-user text-black`}></i>
+                                        <p className='fw-bold'>{review.createdBy.userName}</p>
+                                    </div>
+                                    <p><span className='fw-bold'>Comment:</span> {review.comment}</p>
+                                    <p><span className='fw-bold'>Rating:</span> {review.rating}</p>
                                 </div>
                             ))
                             }

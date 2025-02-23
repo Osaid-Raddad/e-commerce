@@ -13,7 +13,7 @@ export default function CustomNavbar() {
         try {
             const response = await axios.get(`https://ecommerce-node4.onrender.com/categories/active`);
             setCategory(response.data.categories);
-           // console.log(response);
+            console.log(response);
         } catch (err) {
             console.log(err);
         } finally {
@@ -38,7 +38,7 @@ export default function CustomNavbar() {
 
                         <NavDropdown className={styles.drop} title="Category" id="basic-nav-dropdown" >
                              {category?category.map(cat => (
-                                <NavDropdown.Item key={cat._id}>
+                                <NavDropdown.Item as={Link} to={`/category/${cat.id}`} key={cat.id}>
                                     {cat.name}
                                 </NavDropdown.Item>
                             )): "..."}

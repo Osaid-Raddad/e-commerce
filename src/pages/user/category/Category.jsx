@@ -34,7 +34,6 @@ export default function Category() {
           {data.categories.map( category => (
             <div className="col-xl-4 col-lg-6 d-flex justify-content-center align-items-center mb-4" key={category.id}>
             <Card className={styles.cardContainer} style={{ width: '18rem' }}>
-              
               <Link to={`/category/${category.id}`}> <Card.Img variant="top" src={category.image.secure_url} /> </Link>
             </Card>
           </div>

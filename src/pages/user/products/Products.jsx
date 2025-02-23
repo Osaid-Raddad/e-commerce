@@ -48,7 +48,9 @@ export default function Products() {
                   </div>
                 </div>
                 <div className={styles.cardBody}>
-                  <h3 className={styles.productTitle}>{product.name}</h3>
+                  <h3 className={styles.productTitle}>
+                    {product.name.length > 20 ? product.name.substring(0, 20) + "..." : product.name}
+                  </h3>
                   <div className={styles.rating}>
                     <span className={styles.ratingCount}>Rating:{product.avgRating}</span>
                   </div>
@@ -63,7 +65,7 @@ export default function Products() {
       </div>
 
 
-     
+
 
 
 
