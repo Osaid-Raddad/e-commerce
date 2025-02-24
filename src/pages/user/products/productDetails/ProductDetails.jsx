@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import useAxios from '../../../../assets/hooks/useAxios';
 import styles from './productDetails.module.css'
@@ -7,9 +7,10 @@ import pay from '../../../../assets/img/Pay.svg'
 import ProductDesc from './ProductDesc';
 import axios from 'axios';
 import { Slide, toast } from 'react-toastify';
+import { CartContext } from '../../../../components/context/CartContext';
 
 export default function ProductDetails() {
-
+    const {cartCount, setCartCount} = useContext(CartContext);
     const { productId } = useParams();
     const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products/${productId}`);
     //console.log(data);
@@ -41,7 +42,7 @@ export default function ProductDetails() {
                     theme: "light",
                     transition: Slide,
                     });
-
+                    setCartCount(cartCount+1);    
                 navigate('/cart');
             }
         }catch(err){

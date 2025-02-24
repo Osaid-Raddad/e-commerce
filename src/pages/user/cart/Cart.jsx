@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from './cart.module.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -6,8 +6,10 @@ import Loading from '../../../components/user/loading/Loading.jsx';
 import { Slide, toast } from 'react-toastify';
 import ClearCart from './ClearCart.jsx';
 import { useForm } from 'react-hook-form';
+import { CartContext } from '../../../components/context/CartContext.jsx';
 export default function Cart() {
     const [cart, setCart] = useState(null);
+     
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const getCart = async () => {
@@ -23,6 +25,7 @@ export default function Cart() {
             );
             console.log(response);
             setCart(response.data.products);
+            //setCartCount(response.data.count);
         }catch (err) {
             setError(err.message);
             toast.error(err.response.data.message, {
@@ -56,7 +59,6 @@ export default function Cart() {
        
       });
        getCart();
-
      console.log(response);
       
     } catch (err) {
@@ -70,6 +72,53 @@ export default function Cart() {
         getCart();
     }, []);
 
+    const incQnt = async (productId) => {
+        setIsLoading(true);
+    try {
+      const response = await axios.patch(`https://ecommerce-node4.onrender.com/cart/incraseQuantity`,
+       {
+        productId:productId
+       }
+       ,{
+
+        headers: {
+          Authorization: `Tariq__${localStorage.getItem('USER TOKEN')}`
+        },
+       
+      });
+       getCart();
+     //console.log(response);
+      
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+    }
+
+    const decQnt = async (productId) => {
+        setIsLoading(true);
+    try {
+      const response = await axios.patch(`https://ecommerce-node4.onrender.com/cart/decraseQuantity`,
+       {
+        productId:productId
+       }
+       ,{
+
+        headers: {
+          Authorization: `Tariq__${localStorage.getItem('USER TOKEN')}`
+        },
+       
+      });
+       getCart();
+    // console.log(response);
+      
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+    }
 
     if (isLoading) return <Loading />;
 
@@ -123,9 +172,9 @@ export default function Cart() {
                                 <p className='text-center fw-bold text-black'>{item.details.price}</p>
                                 <p className='text-center fw-bold text-black'>%{item.details.discount}</p>
                                 <div className={styles.quantitySelector}>
-                                    <button className={styles.button} >-</button>
+                                    <button className={styles.button} onClick={()=>decQnt(item.productId)} >-</button>
                                     <span id="count" className={styles.count}>{item.quantity}</span>
-                                    <button className={styles.button} >+</button>
+                                    <button className={styles.button} onClick={()=>incQnt(item.productId)} >+</button>
                                 </div>
                                 <p className='text-center fw-bold text-black w-25'>{item.quantity * item.details.finalPrice}</p>
                             </div>

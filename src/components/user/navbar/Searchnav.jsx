@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './Navs.module.css';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -9,6 +9,7 @@ import { FormControl, InputGroup, Modal, Nav, Spinner, ListGroup } from 'react-b
 import Logo from '../../../assets/img/Logo.svg';
 import { Link } from 'react-router-dom';
 import useAxios from '../../../assets/hooks/useAxios';
+import { CartContext } from '../../context/CartContext';
 export default function Searchnav({response}) {
 
     const [showModal, setShowModal] = useState(false);
@@ -18,6 +19,7 @@ export default function Searchnav({response}) {
 
     const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products`);
     
+    const {cartCount} = useContext(CartContext);
 
     const handleSearch = (query) => {
         setSearchQuery(query);
@@ -72,7 +74,7 @@ export default function Searchnav({response}) {
                         <Nav.Link as={Link} to={"/cart"} className="position-relative">
                             <i className="fa-solid fa-cart-shopping text-white"></i>
                             <span className={`position-absolute top-0 start-100 translate-middle ${styles.badge} rounded-pill bg-danger`}>
-                                0
+                                {cartCount} 
                             </span>
                         </Nav.Link>
                         <Nav.Link as={Link} to="#link">

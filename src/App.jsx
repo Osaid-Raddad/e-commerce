@@ -14,6 +14,7 @@ import ProductDetails from './pages/user/products/productDetails/ProductDetails.
 import Cart from './pages/user/cart/Cart.jsx'
 import EmptyCart from './pages/user/cart/emptyCart/EmptyCart.jsx'
 import ProtectedRoute from './components/protected/ProtectedRoute.jsx'
+import CartContextProvider from './components/context/CartContext.jsx'
 export default function App() {
 
   const route = createBrowserRouter([
@@ -86,8 +87,10 @@ export default function App() {
 
   return (
     <>
-      <ToastContainer />
-      <RouterProvider router={route} />
+      <CartContextProvider>
+        <ToastContainer />
+        <RouterProvider router={route} />
+      </CartContextProvider>
     </>
   )
 }
