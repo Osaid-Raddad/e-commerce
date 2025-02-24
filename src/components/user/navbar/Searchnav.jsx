@@ -47,7 +47,7 @@ export default function Searchnav() {
                     <Navbar className={styles.Ss} id="navbarScroll">
                         {/* Search Bar - Opens Modal on Click */}
                         <Form className="d-flex justify-content-center align-items-center" style={{ width: "100%" }}>
-                            <InputGroup className={styles.sr} style={{  overflow: "hidden", width: "500px" }}>
+                            <InputGroup className={styles.sr} style={{ overflow: "hidden", width: "500px" }}>
                                 <FormControl
                                     type="text"
                                     placeholder="Search for anything..."
@@ -68,9 +68,12 @@ export default function Searchnav() {
                     </Navbar>
 
                     {/* Navigation Icons */}
-                    <Nav className={` ${styles.icon}`}>
-                        <Nav.Link as={Link} to="/cart">
+                    <Nav className={`${styles.icon}`}>
+                        <Nav.Link as={Link} to="/cart" className="position-relative">
                             <i className="fa-solid fa-cart-shopping text-white"></i>
+                            <span className={`position-absolute top-0 start-100 translate-middle ${styles.badge} rounded-pill bg-danger`}>
+                                0
+                            </span>
                         </Nav.Link>
                         <Nav.Link as={Link} to="#link">
                             <i className="fa-regular fa-heart text-white"></i>

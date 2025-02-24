@@ -4,7 +4,8 @@ import styles from './cart.module.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../../../components/user/loading/Loading.jsx';
-import { Slide, toast } from 'react-toastify';
+import { Slide, toast, ToastContainer } from 'react-toastify';
+import ClearCart from './ClearCart.jsx';
 export default function Cart() {
 
     const [cart, setCart] = useState(null);
@@ -40,6 +41,8 @@ export default function Cart() {
             setIsLoading(false);
         }
     }
+
+   
 
     useEffect(() => {
         getCart();
@@ -82,6 +85,7 @@ export default function Cart() {
                             </div>
                         </div>
                     </div>
+                    
                     {cart?.map(item => (
                         <div className={`${styles.item} mt-4`} key={item.details.id}>
 
@@ -106,7 +110,7 @@ export default function Cart() {
                     ))}
                     <div className={`${styles.btns}`}>
                         <button as={Link} to={'/products'} className={`${styles.checkout} btn btn-primary`}> <i className="fa-solid fa-arrow-left"></i> Back To Shop</button>
-                        <button as={Link} className={`${styles.clear} btn btn-danger`}>Clear cart</button>
+                        <ClearCart  />
                     </div>
                 </div>
                 <div className={`${styles.left} `}>

@@ -75,6 +75,17 @@
 
 }
 
+.icon .badge {
+    font-size: 12px;
+    padding: 0.5rem;
+    color: #fff;
+    height: 27px;
+    width: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .sr{
     width: 500px !important;
 }
