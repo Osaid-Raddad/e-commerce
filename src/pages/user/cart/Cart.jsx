@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from './cart.module.css';
-import img from '../../../assets/img/image.png'; 
+
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../../../components/user/loading/Loading.jsx';
