@@ -6,7 +6,7 @@ import { Bounce, toast, Zoom } from 'react-toastify';
 import { Button } from 'react-bootstrap';
 export default function register({ toggleForm }) {
 
-  
+
   //const [serverError, setServerError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -31,21 +31,21 @@ export default function register({ toggleForm }) {
       }
       console.log(response);
     } catch (err) {
-      const errorMessage = err.response?.status === 409 
-      ? "Email already in use." 
-      : "Server Error";
+      const errorMessage = err.response?.status === 409
+        ? "Email already in use."
+        : "Server Error";
 
-    toast.error(errorMessage, { 
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Zoom,
-    });
+      toast.error(errorMessage, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Zoom,
+      });
 
     } finally {
       setIsLoading(false);
@@ -54,7 +54,7 @@ export default function register({ toggleForm }) {
 
   return (
     <form onSubmit={handleSubmit(registerUser)} className={`${styles.signUpForm}`}>
-      
+
       <h2 className={`${styles.title}`}>Sign up</h2>
       <div className={`${styles.inputField}`}>
         <i className={`fas fa-user`}></i>

@@ -11,6 +11,7 @@ import Product from './pages/user/products/Products.jsx'
 import UserLayout from './layout/UserLayout.jsx'
 import Categoryproducts from './pages/user/products/Categoryproducts.jsx'
 import ProductDetails from './pages/user/products/productDetails/ProductDetails.jsx'
+import Cart from './pages/user/cart/Cart.jsx'
 export default function App() {
 
   const route = createBrowserRouter([
@@ -42,11 +43,11 @@ export default function App() {
       element:<UserLayout/>,
       children:[
         {
-          path:"/",
+          path:"home",
           element:<Home/>
         },
         {
-          path:"/category/:categoryId",
+          path:"category/:categoryId",
           element:<Categoryproducts />
         },
         {
@@ -58,8 +59,12 @@ export default function App() {
           element:<Product/>
         },
         {
-          path:"/products/:productId",
+          path:"products/:productId",
           element:<ProductDetails/>
+        },
+        {
+          path:"cart",
+          element:<Cart/>
         }
       ]
     },

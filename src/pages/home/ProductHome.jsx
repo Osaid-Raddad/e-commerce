@@ -1,5 +1,4 @@
 import React from 'react'
-import Loading from '../../components/user/loading/Loading';
 import useAxios from '../../assets/hooks/useAxios';
 import { Slide, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';

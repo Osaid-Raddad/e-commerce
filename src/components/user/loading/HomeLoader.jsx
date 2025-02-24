@@ -5,7 +5,7 @@ export default function HomeLoader() {
         <>
             <div className={styles.loaderCont}>
 
-                <div class={styles.loader}></div>
+                <div className={styles.loader}></div>
             </div>
         </>
     )

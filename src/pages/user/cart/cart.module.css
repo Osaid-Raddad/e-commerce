@@ -1,0 +1,160 @@
+.all {
+    margin-top: 20%;
+    margin-bottom: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #E4E7E9;
+    padding: 40px 40px;
+}
+
+
+
+.cartH {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #E4E7E9;
+    color: black;
+}
+
+.type {
+    display: flex;
+    justify-content: space-between;
+}
+
+.typeItem {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.type p {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #E4E7E9;
+}
+
+.img {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.img i {
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img i:hover {
+    color: red;
+    border-color: red;
+}
+
+.img p{
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    align-items: baseline;
+}
+
+.quantitySelector {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 20px;
+    justify-content: center;
+    gap: 15px;
+}
+
+.button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+/**/
+
+.left {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #E4E7E9;
+    padding: 40px 40px;
+}
+
+.total{
+    border-bottom: 1px solid #E4E7E9;
+    color: black;
+}
+
+.totalInfo{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E4E7E9;
+    margin-top: 25px;
+}
+
+.infoRight p{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.infoLeft p{
+    color: rgb(47, 104, 156);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.order{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.orderInfo{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.orderInfo p{
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}

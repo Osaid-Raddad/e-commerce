@@ -16,7 +16,7 @@ export default function Searchnav() {
         <>
             <Navbar expand="lg" className={styles.searchNav}>
                 <Container className={styles.sCont}>
-                    <Navbar.Brand as={Link} to={'/'}><img src={Logo} alt="" /></Navbar.Brand>
+                    <Navbar.Brand as={Link} to={'/home'}><img src={Logo} alt="" /></Navbar.Brand>
                     
                     <Navbar.Collapse id="navbarScroll">
 
@@ -49,7 +49,7 @@ export default function Searchnav() {
 
                     
                     <Nav className={`ms-auto ${styles.icon}`}>
-                        <Nav.Link as={Link} href="#home"><i className="fa-solid fa-cart-shopping text-white"></i></Nav.Link>
+                        <Nav.Link as={Link} to={'/cart'}><i className="fa-solid fa-cart-shopping text-white"></i></Nav.Link>
                         <Nav.Link as={Link} href="#link"><i className="fa-regular fa-heart text-white"></i></Nav.Link>
                         <Nav.Link as={Link} to={'/auth'}><i className="fa-solid fa-user text-white"></i></Nav.Link>
                     </Nav>

@@ -1,16 +1,65 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import useAxios from '../../../../assets/hooks/useAxios';
 import styles from './productDetails.module.css'
 import Loading from '../../../../components/user/loading/Loading';
 import pay from '../../../../assets/img/Pay.svg'
 import ProductDesc from './ProductDesc';
+import axios from 'axios';
+import { Slide, toast } from 'react-toastify';
 
 export default function ProductDetails() {
 
     const { productId } = useParams();
     const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products/${productId}`);
     console.log(data);
+    const navigate = useNavigate();
+    const addProductToCart  = async (productId) => {
+        console.log(productId);
+        try{
+            const token = localStorage.getItem('USER TOKEN');
+            const response = await axios.post(`https://ecommerce-node4.onrender.com/cart`,
+             {
+                productId:productId
+             },
+             {
+                headers:{
+                    Authorization: `Tariq__${token}`
+                }
+             }
+            )
+            console.log(response);
+            if(response.status === 201) {
+                toast.success("Product Added Successfully", {
+                    position: "top-left",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Slide,
+                    });
+
+                navigate('/cart');
+            }
+        }catch(err){
+            toast.error(err.response.data.message, {
+                position: "top-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Slide,
+                });  
+        }finally{
+
+        }
+    }
 
     if (isLoading) return <Loading />;
 
@@ -57,7 +106,8 @@ export default function ProductDetails() {
                                         <span id="count" className={styles.count}>01</span>
                                         <button className={styles.button} >+</button>
                                     </div>
-                                    <button className={styles.cartBtn}><span>ADD TO CART</span><i className="fa-solid fa-cart-shopping"></i></button>
+                                    
+                                    <button className={styles.cartBtn} onClick={()=>addProductToCart(productId)}><span>ADD TO CART</span><i className="fa-solid fa-cart-shopping"></i></button>
                                     <button className={styles.buyBtn}>BUY NOW</button>
                                 </div>
 
