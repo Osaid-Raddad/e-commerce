@@ -44,10 +44,10 @@ export default function Searchnav() {
                         <img src={Logo} alt="Logo" />
                     </Navbar.Brand>
 
-                    <Navbar.Collapse id="navbarScroll">
+                    <Navbar className={styles.Ss} id="navbarScroll">
                         {/* Search Bar - Opens Modal on Click */}
                         <Form className="d-flex justify-content-center align-items-center" style={{ width: "100%" }}>
-                            <InputGroup style={{ maxWidth: "500px", overflow: "hidden" }}>
+                            <InputGroup style={{  overflow: "hidden", width: "500px" }}>
                                 <FormControl
                                     type="text"
                                     placeholder="Search for anything..."
@@ -65,10 +65,10 @@ export default function Searchnav() {
                                 </Button>
                             </InputGroup>
                         </Form>
-                    </Navbar.Collapse>
+                    </Navbar>
 
                     {/* Navigation Icons */}
-                    <Nav className={`ms-auto ${styles.icon}`}>
+                    <Nav className={` ${styles.icon}`}>
                         <Nav.Link as={Link} to="/cart">
                             <i className="fa-solid fa-cart-shopping text-white"></i>
                         </Nav.Link>
