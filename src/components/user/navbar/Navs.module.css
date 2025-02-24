@@ -75,7 +75,9 @@
 
 }
 
-
+.sr{
+    width: 500px !important;
+}
 
 @media  screen and (max-width: 326px) {
    .sCont{
@@ -87,15 +89,72 @@
    
    }
 
-   .Ss Form{
-    width: 65% !important;
-   }
 
     .icon {
         margin: 0 !important;
     }
 }
 
+/**/
+
+@media  screen and (max-width:320px ) {
+    .sCont{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 5px;
+       
+       }
+    .sr{
+        width: 100px !important;
+    }
+ }
+
+@media  screen and (min-width:320px ) and (max-width: 350px) {
+    .sCont{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px;
+       
+       }
+    .sr{
+        width: 200px !important;
+    }
+ }
+
+@media  screen and (min-width:351px ) and (max-width: 469px) {
+    .sCont{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px;
+       
+       }
+    .sr{
+        width: 290px !important;
+    }
+ }
+
+
+@media  screen and (min-width:470px ) and (max-width: 659px) {
+    .sCont{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px;
+       
+       }
+    .sr{
+        width: 381px !important;
+    }
+ }
+
+ 
 
 @media screen and (max-width: 992px) {
     .icon {

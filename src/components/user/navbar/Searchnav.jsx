@@ -47,7 +47,7 @@ export default function Searchnav() {
                     <Navbar className={styles.Ss} id="navbarScroll">
                         {/* Search Bar - Opens Modal on Click */}
                         <Form className="d-flex justify-content-center align-items-center" style={{ width: "100%" }}>
-                            <InputGroup style={{  overflow: "hidden", width: "500px" }}>
+                            <InputGroup className={styles.sr} style={{  overflow: "hidden", width: "500px" }}>
                                 <FormControl
                                     type="text"
                                     placeholder="Search for anything..."
