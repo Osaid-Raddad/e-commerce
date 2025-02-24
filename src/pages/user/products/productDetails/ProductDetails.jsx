@@ -12,7 +12,7 @@ export default function ProductDetails() {
 
     const { productId } = useParams();
     const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products/${productId}`);
-    console.log(data);
+    //console.log(data);
     const navigate = useNavigate();
     const addProductToCart  = async (productId) => {
         console.log(productId);
@@ -28,7 +28,7 @@ export default function ProductDetails() {
                 }
              }
             )
-            console.log(response);
+            //console.log(response);
             if(response.status === 201) {
                 toast.success("Product Added Successfully", {
                     position: "top-left",

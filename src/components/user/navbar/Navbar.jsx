@@ -13,7 +13,7 @@ export default function CustomNavbar() {
         try {
             const response = await axios.get(`https://ecommerce-node4.onrender.com/categories/active`);
             setCategory(response.data.categories);
-            console.log(response);
+            //console.log(response);
         } catch (err) {
             console.log(err);
         } finally {

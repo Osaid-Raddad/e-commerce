@@ -14,7 +14,7 @@ export default function UserLayout() {
     <>
       {isHomePage && <Blackfridaynav />}
       <Middlenav/>
-      <Searchnav/>
+      <Searchnav />
       <CustomNavbar />
       <Outlet />
       <Footer/>

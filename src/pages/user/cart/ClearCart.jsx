@@ -8,7 +8,7 @@ import { Bounce, Slide, toast, Zoom } from 'react-toastify';
 export default function ClearCart() {
 
     const navigate = useNavigate();
-    const {handleSubmit,formState: { errors },} = useForm();
+    const {handleSubmit} = useForm();
     const [isLoading, setIsLoading] = useState(false);
     const onSubmit = async (value) => {
         setIsLoading(true);

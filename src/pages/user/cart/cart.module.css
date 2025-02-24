@@ -54,13 +54,22 @@
 }
 
 .img i {
-    border: 1px solid black;
+    
     width: 30px;
     height: 30px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.img button{
+    background-color: transparent;
+    border-radius: 50px;
+}
+
+.img button:hover{
+    border-color: red;
 }
 
 .img i:hover {
@@ -81,6 +90,14 @@
     justify-content: space-between;
     width: 50%;
     align-items: baseline;
+}
+
+.info p:nth-child(1){
+    width: 11%;
+}
+
+.info p:nth-child(2){
+    width: 32%;
 }
 
 .quantitySelector {
@@ -158,3 +175,5 @@
     font-weight: bold;
     font-size: 18px;
 }
+
+

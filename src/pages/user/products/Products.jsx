@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 export default function Products() {
 
   const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products`);
-  console.log(data);
+  //console.log(data);
 
   if (isLoading) {
     return <Loading />

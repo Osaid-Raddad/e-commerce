@@ -9,7 +9,7 @@ import { FormControl, InputGroup, Modal, Nav, Spinner, ListGroup } from 'react-b
 import Logo from '../../../assets/img/Logo.svg';
 import { Link } from 'react-router-dom';
 import useAxios from '../../../assets/hooks/useAxios';
-export default function Searchnav() {
+export default function Searchnav({response}) {
 
     const [showModal, setShowModal] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
@@ -17,7 +17,7 @@ export default function Searchnav() {
 
 
     const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products`);
-
+    
 
     const handleSearch = (query) => {
         setSearchQuery(query);
@@ -69,7 +69,7 @@ export default function Searchnav() {
 
                     {/* Navigation Icons */}
                     <Nav className={`${styles.icon}`}>
-                        <Nav.Link as={Link} to="/cart" className="position-relative">
+                        <Nav.Link as={Link} to={"/cart"} className="position-relative">
                             <i className="fa-solid fa-cart-shopping text-white"></i>
                             <span className={`position-absolute top-0 start-100 translate-middle ${styles.badge} rounded-pill bg-danger`}>
                                 0
@@ -78,7 +78,7 @@ export default function Searchnav() {
                         <Nav.Link as={Link} to="#link">
                             <i className="fa-regular fa-heart text-white"></i>
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/auth">
+                        <Nav.Link as={Link} to={"/auth"}>
                             <i className="fa-solid fa-user text-white"></i>
                         </Nav.Link>
                     </Nav>
