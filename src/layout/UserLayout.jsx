@@ -8,7 +8,7 @@ import Footer from '../components/user/footer/Footer.jsx';
 
 export default function UserLayout() {
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const isHomePage = location.pathname === '/home';
 
   return (
     <>
