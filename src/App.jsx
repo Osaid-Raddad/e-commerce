@@ -12,6 +12,7 @@ import UserLayout from './layout/UserLayout.jsx'
 import Categoryproducts from './pages/user/products/Categoryproducts.jsx'
 import ProductDetails from './pages/user/products/productDetails/ProductDetails.jsx'
 import Cart from './pages/user/cart/Cart.jsx'
+import EmptyCart from './pages/user/cart/emptyCart/EmptyCart.jsx'
 export default function App() {
 
   const route = createBrowserRouter([
@@ -65,6 +66,10 @@ export default function App() {
         {
           path:"cart",
           element:<Cart/>
+        },
+        {
+          path:"empty",
+          element:<EmptyCart/>
         }
       ]
     },
