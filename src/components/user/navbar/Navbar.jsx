@@ -44,6 +44,7 @@ export default function CustomNavbar() {
                             )): "..."}
 
                         </NavDropdown>
+                        <Nav.Link as={Link} to={'/home'}>Home</Nav.Link>
                         <Nav.Link as={Link} to={'/category'}>All Categories</Nav.Link>
                         <Nav.Link as={Link} to={'/products'}>Product</Nav.Link>
                         <Nav.Link as={Link} to={'/about'}>About Us</Nav.Link>

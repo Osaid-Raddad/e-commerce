@@ -13,63 +13,70 @@ import Categoryproducts from './pages/user/products/Categoryproducts.jsx'
 import ProductDetails from './pages/user/products/productDetails/ProductDetails.jsx'
 import Cart from './pages/user/cart/Cart.jsx'
 import EmptyCart from './pages/user/cart/emptyCart/EmptyCart.jsx'
+import ProtectedRoute from './components/protected/ProtectedRoute.jsx'
 export default function App() {
 
   const route = createBrowserRouter([
     {
-      path:"/auth",
-      element:<AuthLayout/>,
-      children:[
+      path: "/auth",
+      element: <AuthLayout />,
+      children: [
         {
-          path:"register",
-          element:<Register/>
+          path: "register",
+          element: <Register />
         },
         {
-          path:"login",
-          element:<Login/>
+          path: "login",
+          element: <Login />
         },
         {
-          index:true,
-          element:<Login/>
+          index: true,
+          element: <Login />
         }
       ]
     },
     {
-      path:"/verify",
-      element:<ForgetPassLayout/>
-      
+      path: "/verify",
+      element: <ForgetPassLayout />
+
     },
     {
-      path:"/",
-      element:<UserLayout/>,
-      children:[
+      path: "/",
+      element: <UserLayout />,
+      children: [
         {
-          path:"home",
-          element:<Home/>
+          path: "home",
+          element: <Home />
         },
         {
-          path:"category/:categoryId",
-          element:<Categoryproducts />
+          path: "category/:categoryId",
+          element: <Categoryproducts />
         },
         {
-          path:"category",
-          element:<Category/>
+          path: "category",
+          element: <Category />
         },
         {
-          path:"products",
-          element:<Product/>
+          path: "products",
+          element: <Product />
         },
         {
-          path:"products/:productId",
-          element:<ProductDetails/>
+          path: "products/:productId",
+          element:
+            <ProtectedRoute >
+              <ProductDetails />
+            </ProtectedRoute>
         },
         {
-          path:"cart",
-          element:<Cart/>
+          path: "cart",
+          element:
+            <ProtectedRoute >
+              <Cart />
+            </ProtectedRoute>
         },
         {
-          path:"empty",
-          element:<EmptyCart/>
+          path: "empty",
+          element: <EmptyCart />
         }
       ]
     },
@@ -79,8 +86,8 @@ export default function App() {
 
   return (
     <>
-      <ToastContainer/>
-      <RouterProvider router={route}/>
+      <ToastContainer />
+      <RouterProvider router={route} />
     </>
   )
 }
