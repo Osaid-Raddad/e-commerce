@@ -1,11 +1,10 @@
 import React from 'react'
 import useAxios from '../../../assets/hooks/useAxios';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import Loading from '../../../components/user/loading/Loading';
 import styles from './products.module.css';
 import { FaEye, FaHeart, FaShoppingCart, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { Slide, toast } from 'react-toastify';
 
 export default function Products() {
 

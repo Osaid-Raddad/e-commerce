@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styles from './cart.module.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../../../components/user/loading/Loading.jsx';
 import { Slide, toast } from 'react-toastify';
@@ -8,9 +8,10 @@ import ClearCart from './ClearCart.jsx';
 import { useForm } from 'react-hook-form';
 import { CartContext } from '../../../components/context/CartContext.jsx';
 import CartTable from './cartTable/CartTable.jsx';
+import { Nav } from 'react-bootstrap';
 export default function Cart() {
     const [cart, setCart] = useState(null);
-     
+    const { cartCount, setCartCount } = useContext(CartContext);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -53,7 +54,7 @@ export default function Cart() {
 
    
     if (isLoading) return <Loading />;
-
+    else if (cartCount === 0){ return <Navigate to={'/empty'}/>}
     return (
         <>
 
@@ -94,7 +95,7 @@ export default function Cart() {
                     ))}
                     <div className={`${styles.btns}`}>
                         <button as={Link} to={"/products"} className={`${styles.checkout} btn btn-primary`}> <i className="fa-solid fa-arrow-left"></i> Back To Shop</button>
-                        <button as={Link} to={'/products'} className={`${styles.placeBtn} btn btn-primary`}>PLace Order  </button>
+                        <Nav.Link as={Link} to={'/placeOrder'} className={`${styles.placeBtn} btn btn-primary`}>PLace Order</Nav.Link>
                         <ClearCart  />
                     </div>
                 </div>

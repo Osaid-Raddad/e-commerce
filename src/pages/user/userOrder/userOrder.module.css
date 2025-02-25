@@ -1,0 +1,33 @@
+.all{
+    margin-top: 10%;
+}
+
+p{
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 0px;
+    width: 20%;
+}
+
+.ordersInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+    border: 3px solid #1B6392;
+    border-radius: 5px;
+    padding: 20px 20px;
+}
+
+.orders{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+    border: 3px solid gray;
+    border-radius: 5px;
+    padding: 20px 20px;
+}

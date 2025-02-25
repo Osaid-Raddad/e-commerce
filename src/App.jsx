@@ -15,6 +15,10 @@ import Cart from './pages/user/cart/Cart.jsx'
 import EmptyCart from './pages/user/cart/emptyCart/EmptyCart.jsx'
 import ProtectedRoute from './components/protected/ProtectedRoute.jsx'
 import CartContextProvider from './components/context/CartContext.jsx'
+import PlaceOrder from './pages/user/placeOrder/PlaceOrder.jsx'
+import UserOrder from './pages/user/userOrder/UserOrder.jsx'
+import Profile from './pages/user/info/Profile.jsx'
+import EditProfile from './pages/user/editProfile/EditProfile.jsx'
 export default function App() {
 
   const route = createBrowserRouter([
@@ -78,6 +82,28 @@ export default function App() {
         {
           path: "empty",
           element: <EmptyCart />
+        },
+        {
+          path: "placeOrder",
+          element: <PlaceOrder />
+        },
+        {
+          path: "profile",
+          element: <Profile />,
+          children: [
+            {
+              path: "orders",
+              element: <UserOrder />
+            },
+            {
+              path: "edit",
+              element: <EditProfile/>
+            },
+          ]
+        },
+        {
+          index: true,
+          element: <Home />
         }
       ]
     },

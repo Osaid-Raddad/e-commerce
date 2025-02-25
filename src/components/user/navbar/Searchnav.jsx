@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import styles from './Navs.module.css';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -10,16 +10,17 @@ import Logo from '../../../assets/img/Logo.svg';
 import { Link } from 'react-router-dom';
 import useAxios from '../../../assets/hooks/useAxios';
 import { CartContext } from '../../context/CartContext';
-export default function Searchnav({response}) {
-
+export default function Searchnav({ response }) {
+    const [show, setShow] = useState(false);
+    const menuRef = useRef(null);
     const [showModal, setShowModal] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredResults, setFilteredResults] = useState([]);
 
 
     const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products`);
-    
-    const {cartCount} = useContext(CartContext);
+
+    const { cartCount } = useContext(CartContext);
 
     const handleSearch = (query) => {
         setSearchQuery(query);
@@ -71,17 +72,59 @@ export default function Searchnav({response}) {
 
                     {/* Navigation Icons */}
                     <Nav className={`${styles.icon}`}>
-                        <Nav.Link as={Link}  to={cartCount === 0 ? "/empty" : "/cart"} className="position-relative">
+                        <Nav.Link as={Link} to={cartCount === 0 ? "/empty" : "/cart"} className="position-relative">
                             <i className="fa-solid fa-cart-shopping text-white"></i>
                             <span className={`position-absolute top-0 start-100 translate-middle ${styles.badge} rounded-pill bg-danger`}>
-                                {cartCount} 
+                                {cartCount}
                             </span>
                         </Nav.Link>
                         <Nav.Link as={Link} to="#link">
                             <i className="fa-regular fa-heart text-white"></i>
                         </Nav.Link>
-                        <Nav.Link as={Link} to={"/auth"}>
-                            <i className="fa-solid fa-user text-white"></i>
+                        <Nav.Link>
+                            <div
+                                className="position-relative"
+                                onMouseEnter={() => setShow(true)}
+                                onMouseLeave={(e) => {
+                                    if (!menuRef.current.contains(e.relatedTarget)) {
+                                        setShow(false);
+                                    }
+                                }}
+                            >
+                                {/* User Icon without Dropdown Arrow */}
+                                <Nav className="mt-1">
+                                    <i className="fa-solid fa-user text-white"></i>
+                                </Nav>
+
+                                {/* Dropdown Menu */}
+                                {show && (
+                                    <div
+                                        ref={menuRef}
+                                        className="position-absolute bg-light shadow rounded p-3"
+                                        style={{
+                                            top: "100%",
+                                            right: "0",
+                                            minWidth: "200px",
+                                            zIndex: 1000,
+                                        }}
+                                        onMouseEnter={() => setShow(true)}
+                                        onMouseLeave={() => setShow(false)}
+                                    >
+                                        <div className="d-flex flex-column">
+                                            <Link to={'/profile'} className={` ${styles.dropItem} text-dark text-decoration-none py-2 d-flex align-items-center`}>
+                                                <i className="fa-solid fa-user me-2"></i> Profile
+                                            </Link>
+                                            <Link to={'/profile/orders'} className={` ${styles.dropItem} text-dark text-decoration-none py-2 d-flex align-items-center`}>
+                                                <i className="fa-solid fa-briefcase me-2"></i> My Order
+                                            </Link>
+                                            <hr className="my-2" />
+                                            <Link to={'/auth'} className={` ${styles.dropItem3} text-danger text-decoration-none py-2 d-flex align-items-center `}>
+                                                <i className="fa-solid fa-sign-out-alt me-2 text-danger"></i> Logout
+                                            </Link>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </Nav.Link>
                     </Nav>
                 </Container>

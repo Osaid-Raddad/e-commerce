@@ -55,7 +55,7 @@ export default function ClearCart() {
       }
 
       if(isLoading) {
-        return toast.info('Processing', {
+            toast.info('Processing', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,

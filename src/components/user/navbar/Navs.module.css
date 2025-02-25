@@ -64,6 +64,20 @@
 
 /* Search Nav */
 
+
+.dropItem:hover{
+    background-color: gray;
+    border-radius: 5px;
+    color: #fff !important;
+}
+
+.dropItem3:hover{
+    background-color: gray;
+    border-radius: 5px;
+    
+}
+
+
 .searchNav {
     background-color: #1B6392;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
