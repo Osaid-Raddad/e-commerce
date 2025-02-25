@@ -71,7 +71,7 @@ export default function Searchnav({response}) {
 
                     {/* Navigation Icons */}
                     <Nav className={`${styles.icon}`}>
-                        <Nav.Link as={Link} to={"/cart"} className="position-relative">
+                        <Nav.Link as={Link}  to={cartCount === 0 ? "/empty" : "/cart"} className="position-relative">
                             <i className="fa-solid fa-cart-shopping text-white"></i>
                             <span className={`position-absolute top-0 start-100 translate-middle ${styles.badge} rounded-pill bg-danger`}>
                                 {cartCount} 

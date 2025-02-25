@@ -5,7 +5,9 @@ import { Slide, toast } from "react-toastify";
 export const CartContext = createContext();
 
 export const CartContextProvider = ({children}) => {
-
+    
+    
+    const [isLoading, setIsLoading] = useState(false);
     const [cartCount, setCartCount] = useState(0);
      useEffect(() => {
             getCart();

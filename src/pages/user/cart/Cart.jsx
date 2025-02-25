@@ -7,11 +7,13 @@ import { Slide, toast } from 'react-toastify';
 import ClearCart from './ClearCart.jsx';
 import { useForm } from 'react-hook-form';
 import { CartContext } from '../../../components/context/CartContext.jsx';
+import CartTable from './cartTable/CartTable.jsx';
 export default function Cart() {
     const [cart, setCart] = useState(null);
      
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+
     const getCart = async () => {
         setIsLoading(true);
         try {
@@ -23,7 +25,7 @@ export default function Cart() {
                     }
                 }
             );
-            console.log(response);
+            //console.log(response);
             setCart(response.data.products);
             //setCartCount(response.data.count);
         }catch (err) {
@@ -44,82 +46,12 @@ export default function Cart() {
         }
     }
 
-   const deleteItem = async (productId) => {
-    setIsLoading(true);
-    try {
-      const response = await axios.patch(`https://ecommerce-node4.onrender.com/cart/removeItem`,
-       {
-        productId:productId
-       }
-       ,{
-
-        headers: {
-          Authorization: `Tariq__${localStorage.getItem('USER TOKEN')}`
-        },
-       
-      });
-       getCart();
-     console.log(response);
-      
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setIsLoading(false);
-    }
-   }
-
+  
     useEffect(() => {
         getCart();
     }, []);
 
-    const incQnt = async (productId) => {
-        setIsLoading(true);
-    try {
-      const response = await axios.patch(`https://ecommerce-node4.onrender.com/cart/incraseQuantity`,
-       {
-        productId:productId
-       }
-       ,{
-
-        headers: {
-          Authorization: `Tariq__${localStorage.getItem('USER TOKEN')}`
-        },
-       
-      });
-       getCart();
-     //console.log(response);
-      
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setIsLoading(false);
-    }
-    }
-
-    const decQnt = async (productId) => {
-        setIsLoading(true);
-    try {
-      const response = await axios.patch(`https://ecommerce-node4.onrender.com/cart/decraseQuantity`,
-       {
-        productId:productId
-       }
-       ,{
-
-        headers: {
-          Authorization: `Tariq__${localStorage.getItem('USER TOKEN')}`
-        },
-       
-      });
-       getCart();
-    // console.log(response);
-      
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setIsLoading(false);
-    }
-    }
-
+   
     if (isLoading) return <Loading />;
 
     return (
@@ -158,27 +90,7 @@ export default function Cart() {
                     </div>
                     
                     {cart?.map(item => (
-                        <div className={`${styles.item} mt-4`} key={item.details.id}>
-
-                            <div className={`${styles.img}`} >
-                                
-                                <button type='submit' onClick={()=>deleteItem(item.details.id)}><i className="fa-solid fa-xmark"></i></button>
-                                <img src={item.details.mainImage.secure_url} width={'50px'} alt="" />
-                                <p >{item.details.name.length > 20 ? item.details.name.substring(0, 20) + "..." : item.details.name}</p>
-                            </div>
-
-
-                            <div className={`${styles.info}`}>
-                                <p className='text-center fw-bold text-black'>{item.details.price}</p>
-                                <p className='text-center fw-bold text-black'>%{item.details.discount}</p>
-                                <div className={styles.quantitySelector}>
-                                    <button className={styles.button} onClick={()=>decQnt(item.productId)} >-</button>
-                                    <span id="count" className={styles.count}>{item.quantity}</span>
-                                    <button className={styles.button} onClick={()=>incQnt(item.productId)} >+</button>
-                                </div>
-                                <p className='text-center fw-bold text-black w-25'>{item.quantity * item.details.finalPrice}</p>
-                            </div>
-                        </div>
+                        <CartTable item={item} getCart={getCart} key={item.details.id}/>
                     ))}
                     <div className={`${styles.btns}`}>
                         <button as={Link} to={"/products"} className={`${styles.checkout} btn btn-primary`}> <i className="fa-solid fa-arrow-left"></i> Back To Shop</button>

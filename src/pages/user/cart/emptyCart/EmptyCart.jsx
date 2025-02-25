@@ -10,6 +10,7 @@ export default function EmptyCart() {
     <>
         <div className={`${styles.all} container`}>
             <img src={Empty} className={styles.img} width={'500px'} alt="" />
+            <h2>Your cart is empty.</h2>
             <div className={`${styles.emptyBtn}`}>
                 <Link to={'/products'}>Return to Shop</Link>
             </div>

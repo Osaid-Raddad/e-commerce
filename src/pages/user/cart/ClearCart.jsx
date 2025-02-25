@@ -10,6 +10,7 @@ export default function ClearCart() {
     const navigate = useNavigate();
     const {handleSubmit} = useForm();
     const [isLoading, setIsLoading] = useState(false);
+   
     const onSubmit = async (value) => {
         setIsLoading(true);
         try {

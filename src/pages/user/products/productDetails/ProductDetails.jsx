@@ -15,6 +15,7 @@ export default function ProductDetails() {
     const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products/${productId}`);
     //console.log(data);
     const navigate = useNavigate();
+
     const addProductToCart  = async (productId) => {
         console.log(productId);
         try{
@@ -42,7 +43,7 @@ export default function ProductDetails() {
                     theme: "light",
                     transition: Slide,
                     });
-                    setCartCount(cartCount+1);    
+                setCartCount(cartCount+1);    
                 navigate('/cart');
             }
         }catch(err){
