@@ -1,0 +1,27 @@
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.img{
+  border: 1px solid #E4E7E9; 
+  border-radius: 5px;
+}
+
+
+.name{
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #000;
+    font-weight: bold;
+}
+
+.email{
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #000;
+    
+}

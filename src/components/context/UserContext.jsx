@@ -1,22 +1,22 @@
 import axios from "axios";
 import {createContext, useEffect, useState} from  "react";
-import { Slide, toast } from "react-toastify";
+
 
 export const UserContext = createContext();
 
 export const UserContextProvider = ({children}) => {
     
     
-    const [isLoading, setIsLoading] = useState(false);
+    
     const [user, setUser] = useState(null);
      useEffect(() => {
-            getCart();
+            getUser();
         }, []);
     
     const getUser = async () => {
-        setIsLoading(true);
+        const token = localStorage.getItem('USER TOKEN');
         try {
-            const token = localStorage.getItem('USER TOKEN');
+           
             const response = await axios.get(`https://ecommerce-node4.onrender.com/user/profile`,
                 {
                     headers: {
@@ -30,8 +30,6 @@ export const UserContextProvider = ({children}) => {
         }catch (err) {
            console.log(err);
            setUser(null)
-        } finally {
-            
         }
     }
 

@@ -19,6 +19,8 @@ import PlaceOrder from './pages/user/placeOrder/PlaceOrder.jsx'
 import UserOrder from './pages/user/userOrder/UserOrder.jsx'
 import Profile from './pages/user/info/Profile.jsx'
 import EditProfile from './pages/user/editProfile/EditProfile.jsx'
+import Info from './pages/user/info/Info.jsx'
+import UserContextProvider from './components/context/UserContext.jsx'
 export default function App() {
 
   const route = createBrowserRouter([
@@ -99,6 +101,14 @@ export default function App() {
               path: "edit",
               element: <EditProfile/>
             },
+            {
+              path: "info",
+              element: <Info/>
+            },
+            {
+              index: true,
+              element: <Info />
+            }
           ]
         },
         {
@@ -113,10 +123,13 @@ export default function App() {
 
   return (
     <>
+    <UserContextProvider>
       <CartContextProvider>
-        <ToastContainer />
-        <RouterProvider router={route} />
-      </CartContextProvider>
+          <ToastContainer />
+          <RouterProvider router={route} />
+        </CartContextProvider>
+    </UserContextProvider>
+      
     </>
   )
 }

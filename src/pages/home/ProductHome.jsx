@@ -61,7 +61,7 @@ export default function ProductHome() {
                                         </span>
                                     </div>
 
-                                    <div className={styles.P}>
+                                    <div className={styles.Pp}>
                                         <p className={styles.finalPrice}>${product.finalPrice}</p>
                                         <p className={styles.price}>${product.price}</p>
                                     </div>

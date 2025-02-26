@@ -18,7 +18,7 @@ export default function SideBar() {
         },
       }}
     >
-      <MenuItem component={<Link to={'/profile'} />}> Profile Info</MenuItem>
+      <MenuItem component={<Link to={'/profile/info'} />}> Profile Info</MenuItem>
       <MenuItem component={<Link to={'/profile/orders'} />}> My Order </MenuItem>
       <MenuItem component={<Link to={'/profile/edit'} />}> Edit Profile</MenuItem>
     </Menu>

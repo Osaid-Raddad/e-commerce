@@ -141,12 +141,14 @@
     margin: 5px 0;
 }
 
-.P{
+.Pp{
     display: flex;
     align-items: end;
     gap: 12px;
     justify-content: center;
 }
+
+
 
 .finalPrice {
     color: green;
@@ -154,6 +156,7 @@
     cursor: pointer;
     font-weight: bold;
 }
+
 
 .price {
     font-size: 14px;

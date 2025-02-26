@@ -13,7 +13,6 @@ export default function Profile() {
           <Col md={8}><Outlet/></Col>
         </Row>
         
-        
       </Container>
     </>
   )

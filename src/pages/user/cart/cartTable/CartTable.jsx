@@ -9,7 +9,6 @@ export default function CartTable({ item, getCart }) {
   const [isLoading, setIsLoading] = useState(false);
   const { cartCount, setCartCount } = useContext(CartContext);
   const navigate = useNavigate();
-  //console.log(temp);
   const [temp, setTemp] = useState(item);
   
   const deletetemp = async (productId) => {
@@ -119,7 +118,8 @@ export default function CartTable({ item, getCart }) {
               <span id="count" className={styles.count}>{temp.quantity}</span>
               <button className={styles.button} onClick={() => incQnt(temp.productId)} >+</button>
             </div>
-            <p className='text-center fw-bold text-black w-25'>{temp.quantity * temp.details.finalPrice}</p>
+            <p className='text-center fw-bold text-black w-25'>{(temp.quantity * temp.details.finalPrice).toLocaleString(undefined, { maximumFractionDigits: 2 })}
+            </p>
           </div>
         </div> : " "}
 

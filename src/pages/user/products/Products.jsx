@@ -61,7 +61,7 @@ export default function Products() {
                       Rating: {parseFloat(product.avgRating).toFixed(2)}
                     </span>
                   </div>
-                  <div className={styles.P}>
+                  <div className={styles.Pp}>
                     <p className={styles.finalPrice}>${product.finalPrice}</p>
                     <p className={styles.price}>${product.price}</p>
                   </div>

@@ -9,7 +9,7 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function Categoryproducts() {
 
-  const {categoryId} = useParams();
+  const { categoryId } = useParams();
   const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products/category/${categoryId}`);
   console.log(data);
 
@@ -30,13 +30,19 @@ export default function Categoryproducts() {
         theme: "light",
         transition: Slide,
       }) : ''}
-      
+
       <div className="container mt-5 mb-5 ">
         <div className="row">
           {data.products.map(product => (
             <div className="col-xl-3 col-md-6 d-flex justify-content-center mb-4" key={product.id}>
               <div className={styles.productCard}>
                 <div className={styles.imageContainer}>
+                  {product.discount > 0 && (
+                    <div className={styles.discountBadge}>
+                      -{product.discount}%
+                    </div>
+                  )}
+
                   <img
                     src={product.mainImage.secure_url}
                     alt={product.name}
@@ -49,12 +55,12 @@ export default function Categoryproducts() {
                   </div>
                 </div>
                 <div className={styles.cardBody}>
-                  <h3 className={styles.productTitle}>{product.name}</h3>
+                  <h3 className={styles.productTitle}>{product.name.length > 20 ? product.name.substring(0, 20) + "..." : product.name}</h3>
                   <div className={styles.rating}>
-                    <span className={styles.ratingCount}><span className='text-dark fw-bold'>Rating:</span> {product.avgRating}</span>
+                    <span className={styles.ratingCount}><span className='text-dark fw-bold'>Rating:</span>  {parseFloat(product.avgRating).toFixed(2)}</span>
                   </div>
-                  <p className={styles.price}> ${product.price}</p>
-                  
+                  <p className={styles.priceCat}> ${product.price}</p>
+
                 </div>
               </div>
             </div>
@@ -65,7 +71,7 @@ export default function Categoryproducts() {
       </div>
 
 
-     
+
 
 
 

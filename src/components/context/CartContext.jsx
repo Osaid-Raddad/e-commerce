@@ -27,7 +27,7 @@ export const CartContextProvider = ({children}) => {
             //console.log(response);
             setCartCount(response.data.count);
         }catch (err) {
-            setError(err.message);
+
             toast.error(err.response.data.message, {
                 position: "top-right",
                 autoClose: 4000,

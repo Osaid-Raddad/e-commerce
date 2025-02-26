@@ -75,7 +75,7 @@ export default function Cart() {
             <div className={`${styles.all} container`}>
 
                 <div className={`${styles.right}`}>
-                    <div className="divOne">
+                    <div className={styles.divOne}>
                         <div className={`${styles.cartH}`}>
                             <h2>Shopping cart</h2>
                         </div>
@@ -94,7 +94,7 @@ export default function Cart() {
                         <CartTable item={item} getCart={getCart} key={item.details.id}/>
                     ))}
                     <div className={`${styles.btns}`}>
-                        <button as={Link} to={"/products"} className={`${styles.checkout} btn btn-primary`}> <i className="fa-solid fa-arrow-left"></i> Back To Shop</button>
+                        <Nav.Link as={Link} to={"/products"} className={`${styles.checkout} btn btn-primary`}> <i className="fa-solid fa-arrow-left"></i> Back To Shop</Nav.Link>
                         <Nav.Link as={Link} to={'/placeOrder'} className={`${styles.placeBtn} btn btn-primary`}>PLace Order</Nav.Link>
                         <ClearCart  />
                     </div>
