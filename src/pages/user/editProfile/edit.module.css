@@ -1,0 +1,32 @@
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.prevImg{
+    
+}
+
+.userImage{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 25px;
+}
+
+.changeBtn{
+    display: flex;
+    margin-top: 25px;
+    padding: 10px 20px;
+    border: 1px solid #1B6392;
+    border-radius: 5px;
+    color: #1B6392;
+    background-color: transparent;
+}
+
+.changeBtn:hover{
+    background-color: #1B6392;
+    color: white;
+}

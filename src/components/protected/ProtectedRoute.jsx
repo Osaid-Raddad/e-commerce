@@ -18,7 +18,7 @@ export default function Protected({children}) {
             theme: "light",
             transition: Slide,
             });
-        return <Navigate to={'/auth'} />
+        return <Navigate to='/auth' />
     }
 
     return children;

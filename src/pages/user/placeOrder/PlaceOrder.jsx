@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Loading from '../../../components/user/loading/Loading';
 import { CartContext } from '../../../components/context/CartContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Slide, toast, Zoom } from 'react-toastify';
 export default function PlaceOrder() {
     const { cartCount, setCartCount } = useContext(CartContext);
@@ -38,10 +38,10 @@ export default function PlaceOrder() {
                     transition: Slide,
                     });
                     
-                <Navigate to={'/profile/orders'}/>;
+                navigate('/profile/orders');
             }
         }catch(err){
-
+            
             toast.error('Failed to place order', {
                 position: "top-right",
                 autoClose: 5000,

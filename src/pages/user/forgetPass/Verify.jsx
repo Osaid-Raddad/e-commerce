@@ -68,7 +68,7 @@ export default function Verify({ toggleForm }) {
             </div>
 
             <Button type="submit" className={`${styles.btn} ${styles.solid}`}>{isLoading ? "Loading..." : "Send Code "}</Button>
-            <Link to={'/login'} className={`${styles.forgotPassword}`}>Back To Login</Link>
+            <Link to={'/auth'} className={`${styles.forgotPassword}`}>Back To Login</Link>
             <p className={`${styles.socialText}`}>Or Sign in with social platforms</p>
             <div className={`${styles.socialMedia}`}>
                 <a href="#" className={`${styles.socialIcon}`}>

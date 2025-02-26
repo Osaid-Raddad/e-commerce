@@ -7,20 +7,40 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Search } from 'react-bootstrap-icons';
 import { FormControl, InputGroup, Modal, Nav, Spinner, ListGroup } from 'react-bootstrap';
 import Logo from '../../../assets/img/Logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAxios from '../../../assets/hooks/useAxios';
 import { CartContext } from '../../context/CartContext';
+import { UserContext } from '../../context/UserContext';
+import { Slide, toast } from 'react-toastify';
 export default function Searchnav({ response }) {
     const [show, setShow] = useState(false);
     const menuRef = useRef(null);
     const [showModal, setShowModal] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredResults, setFilteredResults] = useState([]);
-
+    const navigate = useNavigate();
 
     const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products`);
 
     const { cartCount } = useContext(CartContext);
+    const {setUser} = useContext(UserContext);
+    const Logout = ()=>{
+        localStorage.removeItem('USER TOKEN');
+        setUser(null);
+        toast.success('Logged Out Successfully', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Slide,
+            });
+        navigate('/auth');
+    }
+
 
     const handleSearch = (query) => {
         setSearchQuery(query);
@@ -118,9 +138,9 @@ export default function Searchnav({ response }) {
                                                 <i className="fa-solid fa-briefcase me-2"></i> My Order
                                             </Link>
                                             <hr className="my-2" />
-                                            <Link to={'/auth'} className={` ${styles.dropItem3} text-danger text-decoration-none py-2 d-flex align-items-center `}>
+                                            <button onClick={Logout} className={` ${styles.dropItem3} text-danger text-decoration-none py-2 d-flex align-items-center `}>
                                                 <i className="fa-solid fa-sign-out-alt me-2 text-danger"></i> Logout
-                                            </Link>
+                                            </button>
                                         </div>
                                     </div>
                                 )}

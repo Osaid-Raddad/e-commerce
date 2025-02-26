@@ -71,6 +71,11 @@
     color: #fff !important;
 }
 
+.dropItem3{
+    background-color: transparent ;
+    border: none !important;
+}
+
 .dropItem3:hover{
     background-color: gray;
     border-radius: 5px;

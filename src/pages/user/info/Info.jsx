@@ -12,7 +12,7 @@ export default function Info() {
       <Container>
           <div className={styles.all}>
             <div className={styles.img}>
-              <img src={userImg} alt="" />
+              <img src={user.image.secure_url} className={styles.userImage} alt="" />
             </div>
             <div className={styles.name}>{user.userName}</div>
             <div className={styles.email}><span className='fw-bold'>Email:</span> {user.email}</div>

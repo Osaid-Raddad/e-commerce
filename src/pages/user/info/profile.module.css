@@ -6,9 +6,11 @@
     height: 100vh;
 }
 
-.img{
-  border: 1px solid #E4E7E9; 
-  border-radius: 5px;
+.userImage{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 25px;
+    border-radius: 50%;
 }
 
 

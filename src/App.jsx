@@ -49,7 +49,13 @@ export default function App() {
     },
     {
       path: "/",
-      element: <UserLayout />,
+      element:
+        <UserContextProvider>
+          <CartContextProvider>
+            <UserLayout />
+          </CartContextProvider>
+        </UserContextProvider>
+      ,
       children: [
         {
           path: "home",
@@ -99,11 +105,11 @@ export default function App() {
             },
             {
               path: "edit",
-              element: <EditProfile/>
+              element: <EditProfile />
             },
             {
               path: "info",
-              element: <Info/>
+              element: <Info />
             },
             {
               index: true,
@@ -123,13 +129,11 @@ export default function App() {
 
   return (
     <>
-    <UserContextProvider>
-      <CartContextProvider>
-          <ToastContainer />
-          <RouterProvider router={route} />
-        </CartContextProvider>
-    </UserContextProvider>
-      
+
+      <ToastContainer />
+      <RouterProvider router={route} />
+
+
     </>
   )
 }

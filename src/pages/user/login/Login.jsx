@@ -1,23 +1,24 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from '../authCss/Auth.module.css'
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { Bounce, Slide, toast, Zoom } from 'react-toastify';
 import axios from 'axios';
+import { UserContext } from '../../../components/context/UserContext';
 export default function login() {
 
   //const [serverError, setServerError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
-
+  //const {user} =useContext(UserContext);
   const loginUser = async (value) => {
     setIsLoading(true);
     try {
       const response = await axios.post(`https://ecommerce-node4.onrender.com/auth/signin`, value);
       if (response.status === 200) {
-        toast.success('Wlecome Home', {
+        toast.success(`Welcome to my shop `, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
