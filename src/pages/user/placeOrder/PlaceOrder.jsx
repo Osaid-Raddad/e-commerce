@@ -5,10 +5,15 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Loading from '../../../components/user/loading/Loading';
 import { CartContext } from '../../../components/context/CartContext';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { Slide, toast, Zoom } from 'react-toastify';
 export default function PlaceOrder() {
     const { cartCount, setCartCount } = useContext(CartContext);
     const {register,handleSubmit,formState: { errors },} = useForm();
     const [isLoading, setIsLoading] = useState(false);
+
+    const navigate = useNavigate();
+
     const onSubmit = async (value) =>{
         setIsLoading(true);
         value.couponName= value.couponName === "" ? null : value.couponName ;
@@ -20,7 +25,34 @@ export default function PlaceOrder() {
             })
             console.log(response);
             setCartCount(0);
+            if(response.data.status === 201){
+                toast.success('Order Placed Successfully', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Slide,
+                    });
+                    
+                <Navigate to={'/profile/orders'}/>;
+            }
         }catch(err){
+
+            toast.error('Failed to place order', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Zoom,
+                });
              console.log(err);   
         }finally{
             setIsLoading(false);

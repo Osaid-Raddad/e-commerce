@@ -60,7 +60,7 @@
     font-weight: bold;
     padding: 0px;
     margin: 0px;
-    width: fit-content;
+    width: fit-content !important;
 }
 
 .price {

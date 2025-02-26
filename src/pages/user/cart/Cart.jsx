@@ -26,7 +26,7 @@ export default function Cart() {
                     }
                 }
             );
-            //console.log(response);
+            console.log(response);
             setCart(response.data.products);
             //setCartCount(response.data.count);
         }catch (err) {
@@ -54,7 +54,7 @@ export default function Cart() {
 
    
     if (isLoading) return <Loading />;
-    else if (cartCount === 0){ return <Navigate to={'/empty'}/>}
+    if (cartCount === 0){ return <Navigate to={'/empty'}/>}
     return (
         <>
 

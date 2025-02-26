@@ -57,7 +57,7 @@ export default function ProductHome() {
                                     </h3>
                                     <div className={styles.rating}>
                                         <span className={styles.ratingCount}>
-                                            Rating: {parseFloat(product.avgRating).toFixed(2)}
+                                            <span className='text-black'>Rating:</span> {parseFloat(product.avgRating).toFixed(2)}
                                         </span>
                                     </div>
 

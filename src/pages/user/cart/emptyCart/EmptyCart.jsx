@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Empty from '../../../../assets/img/empty.webp';
 import { Link } from 'react-router-dom';
 import styles from './empty.module.css';
 import { CartContext } from '../../../../components/context/CartContext';
 export default function EmptyCart() {
   const { setCartCount} = useContext(CartContext);
-  setCartCount(0);
+  
+  useEffect(() =>{
+    setCartCount(0);
+  },[]);
+  
   return (
     <>
         <div className={`${styles.all} container`}>

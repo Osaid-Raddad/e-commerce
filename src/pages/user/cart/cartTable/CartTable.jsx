@@ -5,6 +5,7 @@ import Loading from '../../../../components/user/loading/Loading';
 import HomeLoader from '../../../../components/user/loading/HomeLoader.jsx';
 import { CartContext } from '../../../../components/context/CartContext.jsx';
 import { useNavigate } from 'react-router-dom';
+import { Slide, toast } from 'react-toastify';
 export default function CartTable({ item, getCart }) {
   const [isLoading, setIsLoading] = useState(false);
   const { cartCount, setCartCount } = useContext(CartContext);
@@ -93,7 +94,17 @@ export default function CartTable({ item, getCart }) {
         setIsLoading(false);
       }
     }
-    else{}
+    else{ toast.warn('Quantity Coudnt be Negative', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Slide,
+      }); }
   }
 
   if (isLoading) return <HomeLoader />;

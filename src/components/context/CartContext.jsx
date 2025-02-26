@@ -9,6 +9,8 @@ export const CartContextProvider = ({children}) => {
     
     const [isLoading, setIsLoading] = useState(false);
     const [cartCount, setCartCount] = useState(0);
+    const [total, setTotal] = useState(0);
+    const [discount, setDiscount] = useState(0);
      useEffect(() => {
             getCart();
         }, []);
