@@ -31,6 +31,7 @@ export default function Cart() {
             //setCartCount(response.data.count);
         }catch (err) {
             setError(err.message);
+            console.log(err);
             toast.error(err.response.data.message, {
                 position: "top-right",
                 autoClose: 4000,

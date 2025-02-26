@@ -18,7 +18,7 @@ export default function login() {
     try {
       const response = await axios.post(`https://ecommerce-node4.onrender.com/auth/signin`, value);
       if (response.status === 200) {
-        toast.success(`Welcome to my shop `, {
+        toast.success(`Welcome to my shop`, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import useAxios from '../../../../assets/hooks/useAxios';
 import styles from './productDetails.module.css'
@@ -10,12 +10,12 @@ import { Slide, toast } from 'react-toastify';
 import { CartContext } from '../../../../components/context/CartContext';
 
 export default function ProductDetails() {
-    const {cartCount, setCartCount} = useContext(CartContext);
+    const {cartCount, setCartCount, getCart} = useContext(CartContext);
     const { productId } = useParams();
     const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/products/${productId}`);
-    //console.log(data);
+    
     const navigate = useNavigate();
-
+    
     const addProductToCart  = async (productId) => {
         console.log(productId);
         try{
@@ -46,6 +46,7 @@ export default function ProductDetails() {
                 setCartCount(cartCount+1);    
                 navigate('/cart');
             }
+            getCart();
         }catch(err){
             toast.error(err.response.data.message, {
                 position: "top-left",
@@ -135,7 +136,7 @@ export default function ProductDetails() {
                 </div>
             </section>
 
-            <ProductDesc data={data}/>
+            <ProductDesc data={data}  productId={productId}/>
         </>
     )
 }

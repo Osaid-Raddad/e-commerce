@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Tab } from 'bootstrap/dist/js/bootstrap.bundle.min';
 import styles from './productDetails.module.css';
-export default function ProductDesc({ data }) {
+import { UserContext } from '../../../../components/context/UserContext';
+import { Form } from 'react-router-dom';
+import ProductComment from './productComment/ProductComment';
+export default function ProductDesc({ data, setData}) {
     useEffect(() => {
         const tabs = document.querySelectorAll('[data-bs-toggle="tab"]');
         tabs.forEach(tab => {
@@ -15,6 +18,8 @@ export default function ProductDesc({ data }) {
         });
     }, []);
 
+    const {user} = useContext(UserContext);
+    
     return (
         <section>
             <div className={`${styles.desc} container`}>
@@ -33,9 +38,7 @@ export default function ProductDesc({ data }) {
                         {data.product.description}
                     </div>
                     <div className={` mt-5 mb-5 tab-pane fade`} id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex={0}>
-                        <div className={`container ${styles.comment}`}>
-                            
-                        </div>
+                        <ProductComment  />
                         <div className={`row ${styles.rev}`}>
                             {data.product.reviews.map(review => (
                                 <div className={`${styles.revList} col-lg-4`} key={review._id}>
@@ -48,7 +51,6 @@ export default function ProductDesc({ data }) {
                                 </div>
                             ))
                             }
-
                         </div>
 
                     </div>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import styles from './userOrder.module.css'
 import { Container } from 'react-bootstrap'
 import axios from 'axios';
-import { Slide, toast } from 'react-toastify';
 import HomeLoader from '../../../components/user/loading/HomeLoader';
 export default function UserOrder() {
 

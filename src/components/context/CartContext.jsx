@@ -6,11 +6,9 @@ export const CartContext = createContext();
 
 export const CartContextProvider = ({children}) => {
     
-    
+    const [cart,setCart] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [cartCount, setCartCount] = useState(0);
-    const [total, setTotal] = useState(0);
-    const [discount, setDiscount] = useState(0);
      useEffect(() => {
             getCart();
         }, []);
@@ -26,28 +24,19 @@ export const CartContextProvider = ({children}) => {
                     }
                 }
             );
-            //console.log(response);
+            console.log(response.data);
             setCartCount(response.data.count);
-        }catch (err) {
+            setCart(response.data);
 
-            toast.error(err.response.data.message, {
-                position: "top-right",
-                autoClose: 4000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Slide,
-            });
+        }catch (err) {
+           console.log(err);
         } finally {
             setIsLoading(false);
         }
     }
 
     return (
-        <CartContext.Provider value={{cartCount, setCartCount}}>
+        <CartContext.Provider value={{cartCount, setCartCount,cart, getCart,setCart}}>
             {children}
         </CartContext.Provider>
     )

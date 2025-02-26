@@ -281,6 +281,7 @@
     font-size: 25px;
 }
 
+
 .rev{
     display: flex !important;
     gap: 15px;
@@ -315,3 +316,15 @@
     padding: 5px 10px;
     background-color: #cacaca;
 }
+
+
+
+@media screen and (min-width: 320px) and (max-width: 575px) {
+    
+    .revList{
+        width: 80%;
+    }
+
+}
+
+

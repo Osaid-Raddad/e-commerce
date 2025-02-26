@@ -9,15 +9,15 @@ import HomeLoader from '../../../components/user/loading/HomeLoader'
 import { toast } from 'react-toastify'
 export default function EditProfile() {
 
-  const [isloading,setIsloading] = useState(false);
+  const [isloading, setIsloading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const {user} = useContext(UserContext);
-  const [imgPreview,setImgPreview] = useState(null);
+  const { user } = useContext(UserContext);
+  const [imgPreview, setImgPreview] = useState(null);
   const updateImg = async (data) => {
     console.log(data);
     const formData = new FormData();
     formData.append('image', data.image[0]);
-    
+
     try {
       setIsloading(true);
       const response = await axios.put(`https://ecommerce-node4.onrender.com/user/update-image`, formData,
@@ -26,17 +26,17 @@ export default function EditProfile() {
             Authorization: `Tariq__${localStorage.getItem('USER TOKEN')}`
           }
         });
-        if(response.status===200){
-          toast.success('Image updated successfully', {
-            position: 'top-right',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        }
+      if (response.status === 200) {
+        toast.success('Image updated successfully', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
 
     } catch (err) {
       console.log(err);
@@ -46,9 +46,9 @@ export default function EditProfile() {
     }
   }
 
-  if(isloading) return <HomeLoader/>
-  
-  const handleImageChange = (event)=>{
+  if (isloading) return <HomeLoader />
+
+  const handleImageChange = (event) => {
     const file = event.target.files[0];
     setImgPreview(URL.createObjectURL(file));
   }
@@ -57,9 +57,12 @@ export default function EditProfile() {
     <>
       <Container>
         <div className={styles.all}>
-        <div className={styles.img}>
-            {imgPreview?<img src={imgPreview}  className={styles.userImage} alt="" /> 
-            :<img src={user?.image?.secure_url}  className={styles.userImage} alt="" />}
+          <div className={styles.img}>
+            <img
+              src={imgPreview || user?.image?.secure_url || userImg}
+              className={styles.userImage}
+              alt="User"
+            />
           </div>
           <Form onSubmit={handleSubmit(updateImg)}>
             <Form.Group controlId='image'>
@@ -67,7 +70,7 @@ export default function EditProfile() {
             </Form.Group>
             <button type='submit' className={styles.changeBtn}><span className='fw-bold'>Change Image</span></button>
           </Form>
-         
+
         </div>
       </Container>
     </>

@@ -1,15 +1,15 @@
 import React, { useContext, useEffect } from 'react';
 import Empty from '../../../../assets/img/empty.webp';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import styles from './empty.module.css';
 import { CartContext } from '../../../../components/context/CartContext';
 export default function EmptyCart() {
-  const { setCartCount} = useContext(CartContext);
+  const { cartCount ,setCartCount} = useContext(CartContext);
   
-  useEffect(() =>{
-    setCartCount(0);
-  },[]);
-  
+  if(cartCount > 0) {
+    return <Navigate to='/cart'/>
+  }
+
   return (
     <>
         <div className={`${styles.all} container`}>

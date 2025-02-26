@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Loading from '../../../components/user/loading/Loading.jsx';
 import { Link } from 'react-router-dom';
 import styles from './category.module.css';
+import { Slide, toast } from 'react-toastify';
 export default function Category() {
 
   const { data, error, isLoading } = useAxios(`https://ecommerce-node4.onrender.com/categories/active`);

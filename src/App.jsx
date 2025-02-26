@@ -21,12 +21,17 @@ import Profile from './pages/user/info/Profile.jsx'
 import EditProfile from './pages/user/editProfile/EditProfile.jsx'
 import Info from './pages/user/info/Info.jsx'
 import UserContextProvider from './components/context/UserContext.jsx'
+import AuthProtectedRoute from './components/protected/AuthProtectedRoute.jsx'
 export default function App() {
 
   const route = createBrowserRouter([
     {
       path: "/auth",
-      element: <AuthLayout />,
+      element:
+        <AuthProtectedRoute>
+          <AuthLayout />
+        </AuthProtectedRoute>
+      ,
       children: [
         {
           path: "register",
@@ -50,11 +55,14 @@ export default function App() {
     {
       path: "/",
       element:
-        <UserContextProvider>
-          <CartContextProvider>
-            <UserLayout />
-          </CartContextProvider>
-        </UserContextProvider>
+        <ProtectedRoute>
+          <UserContextProvider>
+            <CartContextProvider>
+              <UserLayout />
+            </CartContextProvider>
+          </UserContextProvider>
+        </ProtectedRoute>
+
       ,
       children: [
         {
